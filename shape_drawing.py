@@ -2,7 +2,7 @@ from tkinter import Tk, Canvas, Frame, Menu, BOTH, filedialog
 from rectangle import Rectangle
 from circle import Circle
 from star import Star
-from parser import Parser
+from ShapeParser import Parser
 
 
 class ShapeDrawing(Frame):
