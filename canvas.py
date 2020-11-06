@@ -13,7 +13,7 @@ from rectangle import Rectangle
 class CanvasGraphics(Graphics):
 
     def create_graphics(self):
-        return 'kanker zooi'
+        return 'Het lukt voor geen meter'
 
         # def draw_circle(self, canvas: Canvas):
         #     self.circle = Circle()

@@ -1,5 +1,4 @@
 from abc import ABC, abstractmethod
-from tkinter import Canvas
 from graphics import Graphics
 
 # ABSTRACTION
@@ -7,7 +6,7 @@ from graphics import Graphics
 
 
 class Shape(ABC):
-    def __init__(self, Graphics):
+    def __init__(self, Graphics: Graphics):
         self.Graphics = Graphics
 
     @abstractmethod

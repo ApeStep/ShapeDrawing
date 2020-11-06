@@ -40,14 +40,13 @@ class ShapeDrawing(Frame):
         if not file:
             return
 
-        # RETURNS[Circle(x,y,r),Rectangle(x,y,w,h),Star(x,y,w,h)
+        # RETURNS [Circle(x,y,r),Rectangle(x,y,w,h),Star(x,y,w,h)
         parser = Parser()
         self.shapes = parser.parse_shapes(file)
 
         # DELETES ANY EXISTING SHAPES BEFORE DRAWING SHAPES
         self.canvas.delete("all")
 
-        # DRAWS ALL THE SHAPES ON THE CANVAS
         canvas_graphics = CanvasGraphics()
 
         for shape in self.shapes:
@@ -66,7 +65,7 @@ class ShapeDrawing(Frame):
         self.shapes = parser.parse_shapes(self.file)
 
         for shape in self.shapes:
-            Shape(shape, svg_graphics(shape))
+            Shape(shape, create_graphics(shape))
 
     def onExit(self):
         self.quit()
