@@ -1,8 +1,13 @@
 from tkinter import Tk, Canvas, Frame, Menu, BOTH, filedialog
 from rectangle import Rectangle
 from circle import Circle
+from shape import Shape
 from star import Star
 from ShapeParser import Parser
+from svg import SVG
+from canvas import CanvasGraphics
+
+# CLIENT
 
 
 class ShapeDrawing(Frame):
@@ -30,24 +35,38 @@ class ShapeDrawing(Frame):
         self.canvas.pack(fill=BOTH, expand=1)
 
     def onOpen(self):
+        # OPEN JSON FILE WITH SHAPE PROPERTIES
         file = filedialog.askopenfilename(title="Select file")
-
         if not file:
             return
 
+        # RETURNS[Circle(x,y,r),Rectangle(x,y,w,h),Star(x,y,w,h)
         parser = Parser()
         self.shapes = parser.parse_shapes(file)
 
+        # DELETES ANY EXISTING SHAPES BEFORE DRAWING SHAPES
         self.canvas.delete("all")
+
+        # DRAWS ALL THE SHAPES ON THE CANVAS
+        canvas_graphics = CanvasGraphics()
+
         for shape in self.shapes:
-            shape.draw(self.canvas)
+            Shape(shape, canvas_graphics.create_graphics(shape))
 
     def onClear(self):
         self.canvas.delete("all")
         self.shapes = []
 
     def onExport(self):
-        print("To do.")
+        # needs implementation of svg graphics
+
+        file = filedialog.asksaveasfile(title="Enter file name")
+
+        parser = Parser()
+        self.shapes = parser.parse_shapes(self.file)
+
+        for shape in self.shapes:
+            Shape(shape, svg_graphics(shape))
 
     def onExit(self):
         self.quit()

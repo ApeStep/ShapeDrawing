@@ -1,5 +1,9 @@
 from shape import Shape
 from tkinter import Canvas
+from graphics import Graphics
+
+# REFINED ABSTRACTION RECTANGLE
+
 
 class Rectangle(Shape):
 
@@ -10,9 +14,5 @@ class Rectangle(Shape):
         self.height: int = height
         super().__init__()
 
-    def draw(self, canvas: Canvas):
-        canvas.create_line(self.x, self.y,
-                           self.x + self.width, self.y,
-                           self.x + self.width, self.y + self.height,
-                           self.x, self.y + self.height,
-                           self.x, self.y)
+    def draw(self):
+        self.Graphics.create_graphics()

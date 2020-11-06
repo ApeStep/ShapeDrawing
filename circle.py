@@ -1,6 +1,8 @@
 from shape import Shape
 from tkinter import Canvas
 
+# REFINED ABSTRACTION CIRCLE
+
 
 class Circle(Shape):
 
@@ -10,6 +12,7 @@ class Circle(Shape):
         self.radius: int = radius
         super().__init__()
 
-    def draw(self, canvas: Canvas):
+    def draw(self):
+
         canvas.create_oval(self.x - self.radius, self.y - self.radius,
                            self.x + self.radius, self.y + self.radius)
